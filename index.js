@@ -2,7 +2,7 @@ const express = require("express")
 
 const cors = require("cors")
 
-
+require('dotenv').config()
 const connection = require("./db")
 const userRouter = require("./routes/user.routes")
 const profileRoutes = require("./routes/profile")
@@ -21,7 +21,7 @@ app.use('/emi', emiRoutes)
 
 
 
-app.listen(9009,async()=>{
+app.listen(process.env.port,async()=>{
     try{
         await connection
         console.log("Server mongoose started");
